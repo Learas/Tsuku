@@ -1,0 +1,194 @@
+#board {
+    position: relative;
+    width: 40%;
+    margin: 0 auto;
+    padding: 0; /* Clears unordered list default of 40px */
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#board li {
+    list-style-type: none;
+    position: relative;
+    float: left;
+    width: 27.85714285714286%;
+    padding: 0 0 32.16760145166612% 0;
+    /*
+    -o-transform: rotate(-60deg) skewY(30deg);
+    -moz-transform: rotate(-60deg) skewY(30deg);
+    -webkit-transform: rotate(-60deg) skewY(30deg);
+    -ms-transform: rotate(-60deg) skewY(30deg);
+    transform: rotate(-60deg) skewY(30deg);
+    */
+    background: #fd005f;
+    overflow: hidden;
+    visibility: hidden;
+
+}
+
+#board li * {
+    visibility: visible;
+}
+
+/*
+#board li .tile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fdbf00;
+    -o-transform: skewY(-30deg) rotate(60deg);
+    -moz-transform: skewY(-30deg) rotate(60deg);
+    -webkit-transform: skewY(-30deg) rotate(60deg);
+    -ms-transform: skewY(-30deg) rotate(60deg);
+    transform: skewY(-30deg) rotate(60deg);
+    overflow: hidden;
+}
+*/
+
+#board li .tile {
+    position: relative;
+    width: 200px; 
+    height: 115.47px;
+    background-color: #7a7a7a;
+    margin: 57.74px 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.55);
+    border-left: solid 1px #333333;
+    border-right: solid 1px #333333;
+  }
+  
+
+  #board li .tile:before,
+
+  #board li .tile:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 141.42px;
+    height: 141.42px;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 28.2893px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.55);
+  }
+  
+
+  #board li .tile:before {
+    top: -70.7107px;
+    border-top: solid 1.4142px #333333;
+    border-right: solid 1.4142px #333333;
+  }
+  
+
+  #board li .tile:after {
+    bottom: -70.7107px;
+    border-bottom: solid 1.4142px #333333;
+    border-left: solid 1.4142px #333333;
+  }
+  
+  /*cover up extra shadows*/
+ 
+  #board li .tile span {
+      display: block;
+      position: absolute;
+      top:0.5773502691896257px;
+      left: 0;
+      width:198px;
+      height:114.3154px;
+      z-index: 2;
+      background: inherit;
+    }
+ 
+
+#board li .tile.tile_moon {
+    background-color: grey;
+}
+
+
+#board li:nth-child(2) {
+    margin: 0 1%;
+  }
+
+  #board li:nth-child(3n+2) {
+    margin: 0 1%;
+  }
+  
+  /*
+  #board li:nth-child(6n+4), #board li:nth-child(6n+5), #board li:nth-child(6n+6) {
+    margin-top: -6.9285714285%;
+    margin-bottom: -6.9285714285%;
+    -o-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+    -moz-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+    -webkit-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+    -ms-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+    transform: translateX(50%) rotate(-60deg) skewY(30deg);
+}
+*/
+
+#board li:nth-child(6n+4) { 
+    margin-left: 0.5%;
+}
+
+
+
+
+/* one single hexagon with border*/
+/*
+.hexagon {
+  position: relative;
+  width: 200px; 
+  height: 115.47px;
+  background-color: #7a7a7a;
+  margin: 57.74px 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.55);
+  border-left: solid 1px #333333;
+  border-right: solid 1px #333333;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 141.42px;
+  height: 141.42px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 28.2893px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.55);
+}
+
+.hexagon:before {
+  top: -70.7107px;
+  border-top: solid 1.4142px #333333;
+  border-right: solid 1.4142px #333333;
+}
+
+.hexagon:after {
+  bottom: -70.7107px;
+  border-bottom: solid 1.4142px #333333;
+  border-left: solid 1.4142px #333333;
+}
+
+/*cover up extra shadows*/
+/*
+.hexagon span {
+    display: block;
+    position: absolute;
+    top:0.5773502691896257px;
+    left: 0;
+    width:198px;
+    height:114.3154px;
+    z-index: 2;
+    background: inherit;
+  }
+*/

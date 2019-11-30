@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+    line-height: 10px;
+}
+
+    * {
+    box-sizing: border-box;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 10px;
+}
+
+.col-1 {width: 7%;
+    background-color:gray;
+    border-radius: 2em;
+    }
+
+.col-2 {width: 13%;} /* 16.66 */
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+
+
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+div.grayBackground {
+    background-color:gray;
+    width: 100px;
+    height: 42em;
+    padding: 5px;
+}
+
+div.stats {
+    background-color: white;
+    border-style: solid;
+    border-width: 500%;
+    margin: 2em, 2em;
+    outline-width: 1em;
+    border-radius: 25%;
+}
+
+/*
+div.clickable_circle {
+    background-color: white;
+    border-style: solid;
+    border-radius: 100%;
+    width: 1em;
+    height: 1em;
+}
+*/
+
+p.standard {
+    text-align: center;
+    font-size: 0.7vw;
+    margin-left: inherit;
+    word-wrap: break-word;
+    line-height: 20px;
+}
+
+p.saving_throws {
+    text-align: left;
+    font-size: 0.7vw;
+    margin-left: 3em;
+    word-wrap: break-word;
+    line-height: 10px;
+}
+
+/*
+select {
+    width: 100%;
+    max-width: 40px !important
+}
+
+button {
+    background-color: white;
+    border-radius: 25%;
+
+}
+
+.saving_throws_input {
+    -ms-transform: scale(1); 
+    -webkit-transform: scale(1); 
+    transform: scale(1);
+    text-align: center;
+    margin-left: 5em;
+    margin-top: 1em;
+}
+.label_st_input {
+    font-size: 0.7vw;
+    text-align: center;
+}
+
+*/
+
+
+/* The container */
+.container {
+    display: block;
+    align-items: left;
+    position: relative;
+    padding-left: 35px;
+    margin-left: 2em;
+    margin-top: 1em;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 0.7vw;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0.1em;
+    left: 1em;
+    height: 0.7em;
+    width: 0.7em;
+    background-color: #eee;
+    border-radius: 100%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #000000;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+
+
+
+
+</style>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>D&D Encounters</title>
+</head>
+<body>
+
+<header>
+<p>Character Name</p>
+
+</header>
+
+<div class="row">
+
+    <div class="col-1 menu">
+
+    <!--  <div class="grayBackground">  -->   
+       <div class="stats">
+           <p class="standard">
+                <b>Strength</b>
+                <br>
+                <br>
+                <select>
+                        <option value="Strength01">1</option>
+                        <option value="Strength02">2</option>
+                        <option value="Strength03">3</option>
+                        <option value="Strength04">4</option>
+                        <option value="Strength05">5</option>
+                        <option value="Strength06">6</option>
+                        <option value="Strength07">7</option>
+                        <option value="Strength08">8</option>
+                        <option value="Strength09">9</option>
+                        <option value="Strength10">10</option>
+                        <option value="Strength11">11</option>
+                        <option value="Strength12">12</option>
+                        <option value="Strength13">13</option>
+                        <option value="Strength14">14</option>
+                        <option value="Strength15">15</option>
+                        <option value="Strength16">16</option>
+                        <option value="Strength17">17</option>
+                        <option value="Strength18">18</option>
+                        <option value="Strength19">19</option>
+                        <option value="Strength20">20</option>
+                      </select>
+                <br>
+           </p>
+       </div> 
+       <br>
+       
+       <div class="stats">
+           <p class="standard"> 
+               <b>Dexterity </b>
+                <br>
+                <br>
+                <select>
+                        <option value="Dexterity01">1</option>
+                        <option value="Dexterity02">2</option>
+                        <option value="Dexterity03">3</option>
+                        <option value="Dexterity04">4</option>
+                        <option value="Dexterity05">5</option>
+                        <option value="Dexterity06">6</option>
+                        <option value="Dexterity07">7</option>
+                        <option value="Dexterity08">8</option>
+                        <option value="Dexterity09">9</option>
+                        <option value="Dexterity10">10</option>
+                        <option value="Dexterity11">11</option>
+                        <option value="Dexterity12">12</option>
+                        <option value="Dexterity13">13</option>
+                        <option value="Dexterity14">14</option>
+                        <option value="Dexterity15">15</option>
+                        <option value="Dexterity16">16</option>
+                        <option value="Dexterity17">17</option>
+                        <option value="Dexterity18">18</option>
+                        <option value="Dexterity19">19</option>
+                        <option value="Dexterity20">20</option>
+                      </select>
+                <br>
+            </p>
+       </div>
+       <br>
+
+       <div class="stats">
+            <p class="standard"> 
+                <b> Constitution </b>
+                <br>
+                <br>
+                <select>
+                        <option value="Constitution01">1</option>
+                        <option value="Constitution02">2</option>
+                        <option value="Constitution03">3</option>
+                        <option value="Constitution04">4</option>
+                        <option value="Constitution05">5</option>
+                        <option value="Constitution06">6</option>
+                        <option value="Constitution07">7</option>
+                        <option value="Constitution08">8</option>
+                        <option value="Constitution09">9</option>
+                        <option value="Constitution10">10</option>
+                        <option value="Constitution11">11</option>
+                        <option value="Constitution12">12</option>
+                        <option value="Constitution13">13</option>
+                        <option value="Constitution14">14</option>
+                        <option value="Constitution15">15</option>
+                        <option value="Constitution16">16</option>
+                        <option value="Constitution17">17</option>
+                        <option value="Constitution18">18</option>
+                        <option value="Constitution19">19</option>
+                        <option value="Constitution20">20</option>
+                      </select>
+                <br>
+            </p>
+        </div>
+        <br>
+
+        <div class="stats">
+                <p class="standard"> 
+                   <b> Intelligence </b>
+                    <br>
+                    <br>
+                    <select>
+                            <option value="Intelligence01">1</option>
+                            <option value="Intelligence02">2</option>
+                            <option value="Intelligence03">3</option>
+                            <option value="Intelligence04">4</option>
+                            <option value="Intelligence05">5</option>
+                            <option value="Intelligence06">6</option>
+                            <option value="Intelligence07">7</option>
+                            <option value="Intelligence08">8</option>
+                            <option value="Intelligence09">9</option>
+                            <option value="Intelligence10">10</option>
+                            <option value="Intelligence11">11</option>
+                            <option value="Intelligence12">12</option>
+                            <option value="Intelligence13">13</option>
+                            <option value="Intelligence14">14</option>
+                            <option value="Intelligence15">15</option>
+                            <option value="Intelligence16">16</option>
+                            <option value="Intelligence17">17</option>
+                            <option value="Intelligence18">18</option>
+                            <option value="Intelligence19">19</option>
+                            <option value="Intelligence20">20</option>
+                          </select>
+                    <br>
+                </p>
+            </div>
+            <br>
+
+            <div class="stats">
+                    <p class="standard"> 
+                       <b> Wisdom </b>
+                     <br>
+                     <br>
+                     <select>
+                            <option value="Wisdom01">1</option>
+                            <option value="Wisdom02">2</option>
+                            <option value="Wisdom03">3</option>
+                            <option value="Wisdom04">4</option>
+                            <option value="Wisdom05">5</option>
+                            <option value="Wisdom06">6</option>
+                            <option value="Wisdom07">7</option>
+                            <option value="Wisdom08">8</option>
+                            <option value="Wisdom09">9</option>
+                            <option value="Wisdom10">10</option>
+                            <option value="Wisdom11">11</option>
+                            <option value="Wisdom12">12</option>
+                            <option value="Wisdom13">13</option>
+                            <option value="Wisdom14">14</option>
+                            <option value="Wisdom15">15</option>
+                            <option value="Wisdom16">16</option>
+                            <option value="Wisdom17">17</option>
+                            <option value="Wisdom18">18</option>
+                            <option value="Wisdom19">19</option>
+                            <option value="Wisdom20">20</option>
+                          </select>
+                     <br>
+                     </p>
+                </div>
+                <br>
+
+                <div class="stats">
+                        <p class="standard"> 
+                           <b> Charisma </b>
+                         <br>
+                         <br>
+                         <select>
+                                <option value="Charisma01">1</option>
+                                <option value="Charisma02">2</option>
+                                <option value="Charisma03">3</option>
+                                <option value="Charisma04">4</option>
+                                <option value="Charisma05">5</option>
+                                <option value="Charisma06">6</option>
+                                <option value="Charisma07">7</option>
+                                <option value="Charisma08">8</option>
+                                <option value="Charisma09">9</option>
+                                <option value="Charisma10">10</option>
+                                <option value="Charisma11">11</option>
+                                <option value="Charisma12">12</option>
+                                <option value="Charisma13">13</option>
+                                <option value="Charisma14">14</option>
+                                <option value="Charisma15">15</option>
+                                <option value="Charisma16">16</option>
+                                <option value="Charisma17">17</option>
+                                <option value="Charisma18">18</option>
+                                <option value="Charisma19">19</option>
+                                <option value="Charisma20">20</option>
+                              </select>
+                         <br>
+                         </p>
+                    </div>
+                    <br>
+
+    <!-- </div> -->
+
+    </div> <!-- End div col 1 row 1-->
+
+    <div class="col-2 menu">
+        <div class="stats">
+
+            
+            <!-- Clickable Circle
+                
+                  <div>
+                  <div class=clickable_circle id="clickable_circle" onclick="setColor()"> </div>
+                                           
+                            
+                       <script>
+                               var count = 1;
+                               function setColor(clickable_circle, color) {
+                                   var property = document.getElementById("clickable_circle");
+                                   if (count == 0) {
+                                       property.style.background = "white";
+                                       count = 1;        
+                                   }
+                                   else {
+                                       property.style.background = "black";
+                                       count = 0;
+                                   }
+                               }
+                           </script>
+                
+              -->     
+
+        
+            <!--  <input type="radio" class="saving_throws_input" name="saving_throws" value="st_Strength"> <label class="label_st_input"> Strength </label> <br>
+            <input type="radio" class="saving_throws_input" name="saving_throws" value="st_Dexterity"> <label class="label_st_input"> Dexterity </label> <br>
+            <input type="radio" class="saving_throws_input" name="saving_throws" value="st_Constitution"> <label class="label_st_input"> Constitution </label> <br>
+        
+        -->
+            
+
+            <!--
+
+                <p class="saving_throws">Strength</p> </div>
+                <p class="saving_throws">Dexterity</p>
+                <p class="saving_throws">Constitution</p>
+                <p class="saving_throws">Intelligence</p>
+                <p class="saving_throws">Wisdom</p>
+                <p class="saving_throws">Charisma</p>
+
+            -->
+
+            <p id="gCSTStr">8</p>
+           
+<p id="gCSTStr">8</p>
+
+                    <fieldset>
+                        <legend></legend>
+
+                                <label class="container"> Strength
+                                        <input type="checkbox" checked="checked">
+                                        <span class="checkmark"></span>
+                                        <input type="number" id="gCSTStr" name="gCSTStr">
+                                       
+                                      </label>
+                    
+                                      <p id="gCSTStr">8</p>
+                    </fieldset>
+                    <input type="number" id="gCSTStr">
+                    <p id="gCSTStr">10</p>
+                  <label class="container">Dexterity
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Constitution
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Intelligence
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Wisdom
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    <label class="container">Charisma
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        </label>
+
+
+
+
+           
+            <p class="saving_throws"><b>SAVING THROWS</b></p>
+        </div>
+
+    </div> <!-- End div col 2 row 1-->
+</div> <!-- End div row 1 -->
+
+
+
+
+
+<script>
+    // working
+    var CharacterStats = {
+        Strength: 14,
+        Dexterity: 10,
+        Constitution: 19,
+        Intelligence: 8,
+        Wisdom: 7,
+        Charisma: 13,
+    };
+    
+    var CharacterSavingThrows = {
+        Strength: 0,
+        Dexterity: 0,
+        Constitution: 0,
+        Intelligence: 0,
+        Wisdom: 0,
+        Charisma: 0,
+    };
+    
+    document.getElementById("CSStr").innerHTML = CharacterStats.Strength;
+    document.getElementById("CSTStr").innerHTML = CharacterSavingThrows.Strength;
+    
+    
+    function getCharacterSavingThrowsStrength() {
+       var i;
+     
+        for (i=0; i = 14; i++){
+            console.log(i)
+            if (CharacterStats.Strength === i) {
+                CharacterSavingThrows.Strength = Math.floor((i-10)/2);
+                return CharacterSavingThrows.Strength;      
+            };
+        };
+        
+    };
+    
+    console.log(getCharacterSavingThrowsStrength())
+    
+    
+    
+        function getCharacterSavingThrowsDexterity() {
+       var i;
+        for (i=0; i = CharacterStats.Dexterity; i++){
+        if (CharacterStats.Dexterity === i) {
+        CharacterSavingThrows.Dexterity = Math.floor((i-10)/2); 
+        return CharacterSavingThrows.Dexterity; 
+    
+    
+      /*  } else
+        if (CharacterStats.Strength === 12 || CharacterStats.Strength === 13) {
+        CharacterSavingThrows.Strength = 1;
+        } else if (CharacterStats.Strength === 14 || CharacterStats.Strength === 15) {
+        CharacterSavingThrows.Strength = 2;*/
+       // return CharacterSavingThrows.Strength; 
+      
+        };
+    };
+    //document.getElementById("CSSS").innerHTML = CharacterStats.Strength;
+    //document.getElementById("CSTSS").innerHTML = CharacterSavingThrows.Strength; 
+     
+    };
+    
+    
+    function getCharacterSavingThrowsConstitution() {
+       var i;
+     
+        for (i=0; i = CharacterStats.Constitution; i++){
+        if (CharacterStats.Constitution === i) {
+        CharacterSavingThrows.Constitution = Math.floor((i-10)/2);
+        return CharacterSavingThrows.Constitution;
+    };
+    };
+    };
+    
+    function getCharacterSavingThrowsWisdom() {
+       var i;
+     
+        for (i=0; i = CharacterStats.Wisdom; i++){
+        if (CharacterStats.Wisdom === i) {
+        CharacterSavingThrows.Wisdom = Math.floor((i-10)/2);
+        return CharacterSavingThrows.Wisdom;
+    };
+    };
+    };
+    
+    function getCharacterSavingThrowsIntelligence() {
+       var i;
+     
+        for (i=0; i = CharacterStats.Intelligence; i++){
+        if (CharacterStats.Intelligence === i) {
+        CharacterSavingThrows.Intelligence = Math.floor((i-10)/2);
+        return CharacterSavingThrows.Intelligence;
+    };
+    };
+    };
+    
+    function getCharacterSavingThrowsCharisma() {
+       var i;
+     
+        for (i=0; i = CharacterStats.Charisma; i++){
+        if (CharacterStats.Charisma === i) {
+        CharacterSavingThrows.Charisma = Math.floor((i-10)/2);
+        return CharacterSavingThrows.Charisma;
+    };
+    };
+    };
+    
+    //write result
+    document.getElementById("gCSTStr").innerHTML = getCharacterSavingThrowsStrength();
+    document.getElementById("gCSTDex").innerHTML = getCharacterSavingThrowsDexterity();
+    document.getElementById("gCSTCon").innerHTML = getCharacterSavingThrowsConstitution();
+    document.getElementById("gCSTInt").innerHTML = getCharacterSavingThrowsIntelligence();
+    document.getElementById("gCSTWis").innerHTML = getCharacterSavingThrowsWisdom();
+    document.getElementById("gCSTChar").innerHTML = getCharacterSavingThrowsCharisma();
+    
+    
+    
+    //document.getElementById("CSSSS").innerHTML = CharacterStats.Strength;
+    //document.getElementById("CSTSSS").innerHTML = CharacterSavingThrows.Strength;
+    
+</script>
+
+
+
+</body>
+</html>

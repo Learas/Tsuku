@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Example">
+        <meta name="author" content="f13x">
+        <!-- Hiermit bindet man bootstrap ein. Das ist ein Framework, welches viele tolle Dinge mitbringt. 
+        Man kann recht einfach elemente erstellen und diese sind direkt gestylt -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
+        <!-- Jquery wird für bootstrap benötigt liefert uns darüber hinaus auch viele hilfreiche Funktionen, die
+            wir anstelle von den grundlegenden js Funktionen für Dom manipulation verwenden werden. Mehr dazu im main.js file -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+        <title>Ein Beispiel</title>
+        <!-- Hier bindest du deine eigenen Styles ein. Grundsätzlich würde ich sie in ein 
+        separates File packen, damit alles etwas aufgeräumter ist. Da wir viel auf bootstrap zurückgreifen, werden wir
+        kaum eigene styles definieren -->
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body>
+        <!-- Nun erstellen wir ein paar Beispielelemente powered by bootstrap.
+        Du musst den Elementen die entsprechenden Klassen geben, damit bootstrap funktioniert. 
+        Also gut auf die Namen der Klassen achten.
+        Dabei können Klassen kombiniert werden um mehrere Eigenschaften zu verbinden.
+        Die genaue Dokumentation findest du hier: https://getbootstrap.com/docs/4.1/components  
+        Den Anfang macht ein einfaches Page Layout! (Container Konfiguration) -->
+        
+        <div class="container">
+            <!-- In den Container kommen Zeilen (siehe "row" Klasse), und in die Zeilen kommen
+                Spalten "col". In Summe stehen uns 12 Spalten zur Verfügung. Die Breite unserer Spalten legen wir über die Anzahl fest.
+                Das ergibt in unserem Fall ein Layout |1|10|1. Zwei Ränder und ein Zentrum. -->
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <!-- In das Zentrum platzieren wir zwei Formen. Somit sind diese immer schön
+                        mittig platziert. Die erste Form "static" bildet ein einfaches Select Element ab. Alles schön
+                        im bootstrap style -->
+                    <div class="form-group static">
+                        <label for="sel1">Select list:</label>
+                        <select class="form-control" id="sel1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <!-- Die zweite Form "dynamic" wird exemplarisch dynamisch gefüllt. Ich habe die
+                        Klassen "static" und "dynamic" den bootstrap "form-group" Klassen hinzugefügt, damit wir sie später
+                        direkt selektieren können. Achte darauf, dass beide forms eine id besitzen. 
+                        Wichtig ist, dass eine id nur einmal vergeben wird! Auch wenn der Browser es toleriert ist bad practice 
+                        eine id mehr als einmal zu vergeben. Klassen hingegen können beliebig oft mehrfach vergeben werden. -->
+                    <div class="form-group dynamic">
+                            <label for="sel2">Select list:</label>
+                            <select class="form-control" id="sel2">
+                            </select>
+                        </div>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+
+        <!-- Am Ende wird das Javascript File eingebunden. Den Code würde ich auch auslagern. 
+        Wenn du es früher einbindest, findet es die HTML Knoten nicht, die danach definiert wurden.
+        Das liegt daran, dass der Browser die Files streng nach Reihenfolge einbindet und direkt ausführt.
+        Natürlich gibt es die Möglichkeit mit der Ausführung zu warten. (bspw. dom ready event) -->
+        <script src="main.js"></script>
+        <!-- Javascript (Programmcode) -->
+    </body>
+
+</html>

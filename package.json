@@ -1,0 +1,14 @@
+{
+  "name": "dnd-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Learas/DnD-Website.git",
+  "author": "Learas",
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
